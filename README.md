@@ -1,7 +1,7 @@
 ## Wordnet Improvisation
 **Trying to build a tool that can create onotologies and improve wordnet by adding technial terms.**
 
-## :question: Questions?
+## :question: Questions
 
 #### 1. How wordnet works?
 * Lexical Database of semantic relations between words.
