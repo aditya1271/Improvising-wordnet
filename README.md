@@ -29,8 +29,8 @@
 |Meronym                    |
 |Attribute                  |
 |Derivationally related form|
-|Domain of synset -TOPIC,REGION,USAGE|
-|Member of this Domain -TOPIC,REGION,USAGE|
+|Domain of synset-TOPIC,REGION,USAGE|
+|Member of this Domain-TOPIC,REGION,USAGE|
 
 **For Verbs:**
 | Relations                           |
@@ -46,5 +46,9 @@
 |    Domain of synset - TOPIC         |
 |    Domain of synset - REGION        |
 |    Domain of synset - USAGE         |
+
+* I think we will require only nouns and verb ,but for reference use the following link
+
+**[Documentation](https://wordnet.princeton.edu/documentation/wninput5wn)**
 
 #### 3. Which relations are we targetting to improve?
