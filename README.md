@@ -62,6 +62,6 @@ chunkParser = nltk.RegexpParser(chunkGram)
 |P361 |is a part of    |
 
 * Now evaluate **what types of words are selected by the parser?** :sweat:
- * This has to be done by shefali :girl: , cause god knows i don't know grammer :confused:
+ * This has to be done by shefali :boy: or :girl: , cause god knows i don't know grammer :confused:
 
 #### 4. How can we add relation through python in wordnet?:sleeping:
