@@ -1,7 +1,7 @@
 ## Wordnet Improvisation
 **Trying to build a tool that can create onotologies and improve wordnet by adding technial terms.**
 
-## Questions?
+## :question: Questions?
 
 #### 1. How wordnet works?
 * Lexical Database of semantic relations between words.
@@ -63,4 +63,4 @@ chunkParser = nltk.RegexpParser(chunkGram)
 
 * Now evaluate **what types of words are selected by the parser?**
 
-#### 4. How can we add relation through python in wordnet? 
+#### 4. How can we add relation through python in wordnet?
