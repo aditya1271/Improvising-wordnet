@@ -65,3 +65,7 @@ chunkParser = nltk.RegexpParser(chunkGram)
  * This has to be done by shefali :girl: , cause god knows i don't know grammer :confused:
 
 #### 4. How can we add relation through python in wordnet?:sleeping:
+* where is all the data?
+```bash
+cd ~/nltk_data/corpora/wordnet
+```
