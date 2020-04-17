@@ -47,7 +47,7 @@
 
 :book: **[Documentation](https://wordnet.princeton.edu/documentation/wninput5wn)**
 
-#### 3. Which relations are we targetting to improve?
+#### :bulb: 3. Which relations are we targetting to improve?
 * This depends on the concepts we have formed.
 * Our regexParser is the indicative of what words we are selecting to form the Relations.
 ```python
