@@ -49,9 +49,16 @@
 
 #### 3. Which relations are we targetting to improve?
 * This depends on the concepts we have formed.
-  * Our regexParser is the indicative of what words we are selecting to form the Relations.
+* Our regexParser is the indicative of what words we are selecting to form the Relations.
 ```python
 chunkGram = r"""Chunk:{<JJ.?>{0,2}<VBG>{0,1}<NN.?>{1,2}<VBG>{0,1}<NN..?>{0,2}<VBG>{0,1}}"""
 chunkParser = nltk.RegexpParser(chunkGram)
 ```
+* What **relations** are we extracting from ***wikidata***?
+
+|Code |Relations       |
+|---- |----------      |
+|P279 |is a subclass of|
+|P361 |is a part of    |
+
 * Now evaluate **what words are selected by the parser?**
