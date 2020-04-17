@@ -45,7 +45,7 @@
 
 * I think we will require only nouns and verb , but for reference use the following link
 
-**[Documentation](https://wordnet.princeton.edu/documentation/wninput5wn)**
+:book:**[Documentation](https://wordnet.princeton.edu/documentation/wninput5wn)**
 
 #### 3. Which relations are we targetting to improve?
 * This depends on the concepts we have formed.
