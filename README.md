@@ -37,6 +37,8 @@
 |Member of this Domain-USAGE|
 
 * **For Verbs:**
+
+
 | Relations                           |
 | ------------------------------------|
 |   Antonym                           |
