@@ -20,7 +20,7 @@
 
 #### 2. How are words related?
 
-**For Nouns:**
+* **For Nouns:**
 
 |       Relations           |
 | ------------------------  |
@@ -36,7 +36,7 @@
 |Member of this Domain-REGION|
 |Member of this Domain-USAGE|
 
-**For Verbs:**
+* **For Verbs:**
 | Relations                           |
 | ------------------------------------|
 |   Antonym                           |
