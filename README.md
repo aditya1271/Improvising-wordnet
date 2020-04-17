@@ -29,8 +29,12 @@
 |Meronym                    |
 |Attribute                  |
 |Derivationally related form|
-|Domain of synset-TOPIC,REGION,USAGE|
-|Member of this Domain-TOPIC,REGION,USAGE|
+|Domain of synset-TOPIC     |
+|Domain of synset - REGION  |
+|Domain of synset - USAGE   |
+|Member of this Domain-TOPIC|
+|Member of this Domain-REGION|
+|Member of this Domain-USAGE|
 
 **For Verbs:**
 | Relations                           |
