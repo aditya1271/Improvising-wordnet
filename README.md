@@ -61,6 +61,6 @@ chunkParser = nltk.RegexpParser(chunkGram)
 |P279 |is a subclass of|
 |P361 |is a part of    |
 
-* Now evaluate **what types of words are selected by the parser?**
+* Now evaluate **what types of words are selected by the parser?** :sweat:
 
-#### :worried: 4. How can we add relation through python in wordnet?
+#### 4. How can we add relation through python in wordnet?
