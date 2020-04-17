@@ -43,7 +43,7 @@
 |    Domain of synset - REGION        |
 |    Domain of synset - USAGE         |
 
-* I think we will require only nouns and verb , but for reference use the following link
+* I think we will require only nouns and verb :smirk:, but for reference use the following link
 
 :book: **[Documentation](https://wordnet.princeton.edu/documentation/wninput5wn)**
 
