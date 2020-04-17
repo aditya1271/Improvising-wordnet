@@ -20,5 +20,14 @@
 
 #### 2. How are words related?
 
+**For Nouns:**
+
+|       Relations           |
+| ------------------------  |
+|Antonym                    |
+|Holonym                    |
+|Meronym                    |
+|Attribute                  |
+|Derivationally related form|
 
 #### 3. Which relations are we targetting to improve?
