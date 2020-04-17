@@ -8,7 +8,7 @@
 * The relations of a word depend on its pos tag for eg. noun , verb etc.
   * So it depends on what words we classify as **concepts** and what are thier **pos tag**
 
-#### 2. How are words related?
+#### 2. How are words related?(So many! :open_mouth:)
 
 * **For Nouns:**
 
@@ -62,5 +62,6 @@ chunkParser = nltk.RegexpParser(chunkGram)
 |P361 |is a part of    |
 
 * Now evaluate **what types of words are selected by the parser?** :sweat:
+ * This has to be done by shefali :girl: , cause god knows i don't know grammer :confused:
 
 #### 4. How can we add relation through python in wordnet?
