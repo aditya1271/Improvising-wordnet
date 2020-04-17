@@ -63,4 +63,4 @@ chunkParser = nltk.RegexpParser(chunkGram)
 
 * Now evaluate **what types of words are selected by the parser?**
 
-#### 4. How can we add relation through python in wordnet?
+#### :worried: 4. How can we add relation through python in wordnet?
