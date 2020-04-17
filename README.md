@@ -1,17 +1,7 @@
 ## Wordnet Improvisation
+**Trying to build a tool that can create onotologies and improve wordnet by adding technial terms.**
 
-
-
-
-
-
-
-
-
-
-
-
-## Open Questions?
+## Questions?
 
 #### 1. How wordnet works?
 * Lexical Database of semantic relations between words.
@@ -53,8 +43,15 @@
 |    Domain of synset - REGION        |
 |    Domain of synset - USAGE         |
 
-* I think we will require only nouns and verb ,but for reference use the following link
+* I think we will require only nouns and verb , but for reference use the following link
 
 **[Documentation](https://wordnet.princeton.edu/documentation/wninput5wn)**
 
 #### 3. Which relations are we targetting to improve?
+* This depends on the concepts we have formed.
+  * Our regexParser is the indicative of what words we are selecting to form the Relations.
+```python
+chunkGram = r"""Chunk:{<JJ.?>{0,2}<VBG>{0,1}<NN.?>{1,2}<VBG>{0,1}<NN..?>{0,2}<VBG>{0,1}}"""
+chunkParser = nltk.RegexpParser(chunkGram)
+```
+* Now evaluate **what words are selected by the parser?**
