@@ -69,4 +69,3 @@ chunkParser = nltk.RegexpParser(chunkGram)
 ```bash
 cd ~/nltk_data/corpora/wordnet
 ```
-Hello testind Git.
