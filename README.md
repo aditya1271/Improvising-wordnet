@@ -1,4 +1,4 @@
-##  Wordnet Improvisation 
+##  Wordnet Improvisation
 #### Trying to build a ***tool***( :octocat: ) that can create onotologies and improve wordnet by adding technial terms.
 
 ## :question: Questions
@@ -64,8 +64,8 @@ chunkParser = nltk.RegexpParser(chunkGram)
 * Now evaluate **what types of words are selected by the parser?** :sweat:
  * They are basically nouns.
 
-#### 4. How can we add relation through python in wordnet?:sleeping:
-* Where is all the data?
+### 4. Exploring NLTK functions(all of the result in python notebook)
+*  **Where is all the data?**
 ```bash
 cd ~/nltk_data/corpora/wordnet
 ```
@@ -73,8 +73,8 @@ cd ~/nltk_data/corpora/wordnet
 ### 5. Methodology
 * Now since we have every word picked and extracted from wikidata then all of them will be some form of noun.
 * So what I am thinking is how would a relation converge into something like is a subclass of , is a word of.
-
-
+* Python interface to wordnet will be using nltk
+* [Relations](https://medium.com/parrot-prediction/dive-into-wordnet-with-nltk-b313c480e788)
 ### 6. Wordnet working
 **[Very good study material](http://santini.se/teaching/sais/Ass1_PeerReviews/NeeleOnSegebladJesper_WordNet_V01.pdf):heart:**
 * #### Structure
