@@ -62,10 +62,34 @@ chunkParser = nltk.RegexpParser(chunkGram)
 |P361 |is a part of    |
 
 * Now evaluate **what types of words are selected by the parser?** :sweat:
- * This has to be done by shefali :girl: , cause god knows i don't know grammer :confused:
+ * They are basically nouns.
 
 #### 4. How can we add relation through python in wordnet?:sleeping:
 * Where is all the data?
 ```bash
 cd ~/nltk_data/corpora/wordnet
 ```
+
+### 5. Methodology
+* Now since we have every word picked and extracted from wikidata then all of them will be some form of noun.
+* So what I am thinking is how would a relation converge into something like is a subclass of , is a word of.
+
+
+### 6. Wordnet working
+**[Very good study material](http://santini.se/teaching/sais/Ass1_PeerReviews/NeeleOnSegebladJesper_WordNet_V01.pdf):heart:**
+* #### Structure
+   * WordNet consists of three separate databases, one for nouns, one for verbs and one for adjectives
+and adverbs.
+
+   * ##### Synsets:
+      * **Words are stores in the sense in which the appear**
+   * The basic structure is synsets. These are **sets of synonyms, or more correct, near-synonyms**, since
+there exists none to few true synonyms. Synsets contains a **set of lemmas, and these sets are tagged
+with the sense they represent**. These senses can be said to be concepts, all of the lemmas (or words),
+can be said to express the same concept. Word forms which have different meanings appear in
+different synsets. For example the noun ***bank, has 10 different senses in WordNet, and thus it
+appear in 10 different synsets. It also appear as verb in 8 different synsets.***
+
+    * ##### Connection between synsets:
+      * Each of these synsets are
+also connected in some way to other synsets, expressing some kind of relation
