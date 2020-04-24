@@ -98,3 +98,13 @@ also connected in some way to other synsets, expressing some kind of relation
 
 ### 7. How to add data locally.
  * All of the data is stored in ```data.noun``` file, understand how to read and process it and what does is indicate
+ * it is basically sysnet id
+
+ * #### Code to acess the word through sysnet id
+    ![offset_id](offsetid.png)
+
+```python
+ from nltk.corpus import wordnet as wn
+ wn.synset_from_pos_and_offset('n',4543158)
+```
+  * now think of doing the opposite work
