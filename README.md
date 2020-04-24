@@ -14,14 +14,14 @@
 
 |       Relations           |
 | ------------------------  |
-|Antonym                    |
-|Holonym                    |
-|Meronym                    |
+|Antonym                :heavy_check_mark:    |
+|Holonym                :heavy_check_mark:    |
+|Meronym                :heavy_check_mark:    |
 |Attribute                  |
 |Derivationally related form|
-|Domain of synset-TOPIC     |
-|Domain of synset - REGION  |
-|Domain of synset - USAGE   |
+|Domain of synset-TOPIC    :heavy_check_mark: |
+|Domain of synset - REGION :heavy_check_mark: |
+|Domain of synset - USAGE  :heavy_check_mark:|
 |Member of this Domain-TOPIC|
 |Member of this Domain-REGION|
 |Member of this Domain-USAGE|
