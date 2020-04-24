@@ -44,6 +44,7 @@
 |    Domain of synset - USAGE         |
 
 * I think we will require only nouns and verb :smirk:, but for reference use the following link
+* Domain relations are not usefull to us , see this link **[Domans List](http://wndomains.fbk.eu/labels.html)**
 
 :book: **[Documentation](https://wordnet.princeton.edu/documentation/wninput5wn)**
 
