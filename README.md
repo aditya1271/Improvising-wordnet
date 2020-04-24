@@ -94,3 +94,7 @@ appear in 10 different synsets. It also appear as verb in 8 different synsets.**
     * ##### Connection between synsets:
       * Each of these synsets are
 also connected in some way to other synsets, expressing some kind of relation
+
+
+### 7. How to add data locally.
+ * All of the data is stored in ```data.noun``` file, understand how to read and process it and what does is indicate
