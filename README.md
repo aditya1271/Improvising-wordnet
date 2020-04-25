@@ -108,3 +108,8 @@ also connected in some way to other synsets, expressing some kind of relation
  wn.synset_from_pos_and_offset('n',4543158)
 ```
   * now think of doing the opposite work
+###  8. Work left
+* id calculate ??
+* linking new id ??
+* convert this data into db and then query using sql ?
+* wikidata read and add ...
