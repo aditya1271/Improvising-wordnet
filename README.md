@@ -113,6 +113,8 @@ also connected in some way to other synsets, expressing some kind of relation
   * id calculate :question:
     * calculate using the formula:
       **for the word "wagon"**
+
+      
 |lemma | pos  | synset_cnt | p_cnt | [ptr_symbol..]|sense_cnt|tagsense_cnt|synset_offset|  
 |------|------|------------|-------|---------------|---------|------------|-------------|
 |wagon | n    | 5          |4      |@ ~ #p %p      |5        |2           |04543158 03977966 09219858 04543509 02814533|
@@ -136,6 +138,7 @@ Number of senses of lemma that are ranked according to their frequency of occurr
 * ### How are terms stored in data.noun file?
 |synset_offset | lex_filenum |  ss_type | w_cnt | word | lex_id |[word  lex_id...]|p_cnt[ptr...][frames...]| gloss|
 |------------- |-------------|----------|-------|------|--------|-----------------|------------------------|------|
+|04543158| 06 |n |02 |wagon 0 waggon 0 013 @ 04576211 n 0000 %p 02765028 n 0000 ~ 02787120 n 0000 ~ 02970849 n 0000 ~ 03027505 n 0000 ~ 03122295 n 0000 ~ 03558841 n 0000 ~ 03690600 n 0000 ~ 03765467 n 0000 ~ 04468847 n 0000 %p 04543772 n 0000 ~ 04543924 n 0000 ~ 04563020 n 0000 | any of various kinds of wheeled vehicles drawn by an animal or a tractor
 
 * linking new id :question:
     * add the id in the index.noun file and then add the relation in data.noun
