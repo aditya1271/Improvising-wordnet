@@ -189,7 +189,9 @@ Number of senses of lemma that are ranked according to their frequency of occurr
 
 * linking new id :question:
     * add the id in the index.noun file and then add the relation in data.noun
-
+    * so they calculate the byteoffset of the word in the data.noun files
+    * so how can it be done using c++ or python and verify this thing.
+    
 * convert this data into db and then query using sql ?
 
 * wikidata read and add ...
