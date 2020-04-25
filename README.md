@@ -189,9 +189,14 @@ Number of senses of lemma that are ranked according to their frequency of occurr
 
 * linking new id :question:
     * add the id in the index.noun file and then add the relation in data.noun
+      * calculate the data.noun file by inserting at last and then inserting that element in index.noun file
+        * [this might work](https://groups.google.com/forum/#!topic/nltk-users/zL-Y_HSTB_Y)
+        * but might blow the whole thing up
+  * ### word conversion form byteset using python
     * so they calculate the byteoffset of the word in the data.noun files
-    * so how can it be done using c++ or python and verify this thing.
-    
-* convert this data into db and then query using sql ?
+     ```python
+    ./word_from_offset.py 1740(enter the offset value)
+     ```
+
 
 * wikidata read and add ...
