@@ -168,24 +168,24 @@ Number of senses of lemma that are ranked according to their frequency of occurr
    * |pointer_symbol|meaning|
      |--------------|-------|
      |!|    Antonym
-  @  |  Hypernym
-  @i  |  Instance Hypernym
-   ~  |  Hyponym
-   ~i  |  Instance Hyponym
-  #m   | Member holonym
-  #s   | Substance holonym
-  #p   | Part holonym
-  %m   | Member meronym
-  %s   | Substance meronym
-  %p   | Part meronym
-  =    | Attribute
+|  @  |  Hypernym
+|  @i  |  Instance Hypernym
+|   ~  |  Hyponym
+|   ~i  |  Instance Hyponym
+|  #m   | Member holonym
+|  #s   | Substance holonym
+|  #p   | Part holonym
+|  %m   | Member meronym
+|  %s   | Substance meronym
+|  %p   | Part meronym
+|  =    | Attribute
   |+    | Derivationally related form         
   |;c   | Domain of synset - TOPIC
   |-c   | Member of this domain - TOPIC
   |;r   | Domain of synset - REGION
   |-r   | Member of this domain - REGION
   |;u   | Domain of synset - USAGE
-  |-u   | Member of this domain - USAGE 
+  |-u   | Member of this domain - USAGE
 
 * linking new id :question:
     * add the id in the index.noun file and then add the relation in data.noun
