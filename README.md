@@ -136,9 +136,56 @@ A space separated list of p_cnt different types of pointers that lemma has in al
 Number of senses of lemma that are ranked according to their frequency of occurrence in semantic concordance texts.
 
 * ### How are terms stored in data.noun file?
-|synset_offset | lex_filenum |  ss_type | w_cnt | word | lex_id |[word  lex_id...]|p_cnt[ptr...][frames...]| gloss|
-|------------- |-------------|----------|-------|------|--------|-----------------|------------------------|------|
-|04543158| 06 |n |02 |wagon 0 waggon 0 013 @ 04576211 n 0000 %p 02765028 n 0000 ~ 02787120 n 0000 ~ 02970849 n 0000 ~ 03027505 n 0000 ~ 03122295 n 0000 ~ 03558841 n 0000 ~ 03690600 n 0000 ~ 03765467 n 0000 ~ 04468847 n 0000 %p 04543772 n 0000 ~ 04543924 n 0000 ~ 04563020 n 0000 | any of various kinds of wheeled vehicles drawn by an animal or a tractor
+|synset_offset | lex_filenum |  ss_type | w_cnt | word | lex_id |[word  lex_id...]|p_cnt[ptr...][frames...]| gloss(ptrs) |
+|------------- |-------------|----------|-------|------|--------|-----------------|------------------------|------ |
+|04543158| 06 |n |02 |wagon| 0 |waggon 0| 013| @ 04576211 n 0000 |
+|04543158| 06 |n |02 |wagon| 0 |waggon 0| 013| %p 02765028 n 0000|
+|04543158| 06 |n |02 |wagon| 0 |waggon 0| 013|~ 02787120 n 0000 |
+|04543158| 06 |n |02 |wagon| 0 |waggon 0| 013|~ 02970849 n 0000
+|04543158| 06 |n |02 |wagon| 0 |waggon 0| 013|~ 03027505 n 0000
+|04543158| 06 |n |02 |wagon| 0 |waggon 0| 013|~ 03122295 n 0000
+|04543158| 06 |n |02 |wagon| 0 |waggon 0| 013|~ 03558841 n 0000
+|04543158| 06 |n |02 |wagon| 0 |waggon 0| 013|~ 03690600 n 0000
+|04543158| 06 |n |02 |wagon| 0 |waggon 0| 013|~ 03765467 n 0000
+|04543158| 06 |n |02 |wagon| 0 |waggon 0| 013|~ 04468847 n 0000
+|04543158| 06 |n |02 |wagon| 0 |waggon 0| 013|%p 04543772 n 0000
+|04543158| 06 |n |02 |wagon| 0 |waggon 0| 013|~ 04543924 n 0000
+|04543158| 06 |n |02 |wagon| 0 |waggon 0| 013|~ 04563020 n 0000
+
+ * **lex_filenum :**
+ Two digit decimal integer corresponding to the lexicographer file name containing the synset.
+
+* ### What things from data.noun are useful?
+1. #### Synset offset
+2. #### Ptr count
+3. #### Ptr format
+
+   * |pointer_symbol | synset_offset|  pos|  source/target|
+     |-------------- |--------------|-----|---------------|
+     |@| 04576211| n| 0000 |
+
+4. #### Ptrs symbols
+   * |pointer_symbol|meaning|
+     |--------------|-------|
+     |!|    Antonym
+  @  |  Hypernym
+  @i  |  Instance Hypernym
+   ~  |  Hyponym
+   ~i  |  Instance Hyponym
+  #m   | Member holonym
+  #s   | Substance holonym
+  #p   | Part holonym
+  %m   | Member meronym
+  %s   | Substance meronym
+  %p   | Part meronym
+  =    | Attribute
+  |+    | Derivationally related form         
+  |;c   | Domain of synset - TOPIC
+  |-c   | Member of this domain - TOPIC
+  |;r   | Domain of synset - REGION
+  |-r   | Member of this domain - REGION
+  |;u   | Domain of synset - USAGE
+  |-u   | Member of this domain - USAGE 
 
 * linking new id :question:
     * add the id in the index.noun file and then add the relation in data.noun
