@@ -114,25 +114,25 @@ also connected in some way to other synsets, expressing some kind of relation
     * calculate using the formula:
       **for the word "wagon"**
 
-      
+
 |lemma | pos  | synset_cnt | p_cnt | [ptr_symbol..]|sense_cnt|tagsense_cnt|synset_offset|  
 |------|------|------------|-------|---------------|---------|------------|-------------|
 |wagon | n    | 5          |4      |@ ~ #p %p      |5        |2           |04543158 03977966 09219858 04543509 02814533|
 
 * ### How are the terms defined in index.noun file?
-    * **synset_cnt :**
+   * **synset_cnt :**
 Number of synsets that lemma is in. This is the number of senses of the word in WordNet.
 
   * **p_cnt :**
    Number of different pointers that lemma has in all synsets containing it.
   * **synset_offset :**
 Byte offset in data.pos file of a synset containing lemma . Each synset_offset in the list corresponds to a different sense of lemma in WordNet.
- * **sense_cnt :**
+  * **sense_cnt :**
 Same as sense_cnt above. This is redundant, but the field was preserved for compatibility reasons.
- * **ptr_symbol :**
+  * **ptr_symbol :**
 A space separated list of p_cnt different types of pointers that lemma has in all synsets containing it.
 
- * **tagsense_cnt :**
+  * **tagsense_cnt :**
 Number of senses of lemma that are ranked according to their frequency of occurrence in semantic concordance texts.
 
 * ### How are terms stored in data.noun file?
