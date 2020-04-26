@@ -197,6 +197,12 @@ Number of senses of lemma that are ranked according to their frequency of occurr
      ```python
     ./word_from_offset.py 1740(enter the offset value)
      ```
+  * #### Sucessfull addition! :relaxed:
+    * added **15300278 28 n 01 computer_thingy 0 002 @ 08462320 n 0000 @ 00002684 n 0000 | custom thingy** in data.noun file
+
+  * added **computer_thingy n 1 5 @ ~ #p ; - 1 0 15300278** in index.noun file
+
+   ![proof](addition_working.png)
 
 
 * wikidata read and add ...
