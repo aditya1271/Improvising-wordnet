@@ -206,3 +206,20 @@ Number of senses of lemma that are ranked according to their frequency of occurr
 
 
 * wikidata read and add ...
+  * every concept --> node
+  * node --> children (is a part of , is a subclass of)
+  * node search , add the words untill the chain is completed.
+    * node found :
+       * relationship not found : data.noun , index.noun add -->offset change.
+    * node not found : then add in last
+      * parent will acess children , but vice -versa not true
+  * **solution** : add in the last line duplicate elements of the modified node.
+
+ * Aditya ---> graph traversal , node - relationship identification
+
+    * node ....
+    * node existing, new relationship defining.
+    * node not found
+ * runtime -- 14000(2min)
+ * Manan   (4cases--> function)
+           (Hashmap from index.noun data.)
