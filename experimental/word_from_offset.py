@@ -2,8 +2,16 @@
 import sys
 import os
 
-offset = int(sys.argv[1])
-fd = open("/home/manan/nltk_data/corpora/wordnet/data.noun")
-fd.seek(offset)
-print(fd.readline())
+offset = 0
+fd = open("/home/manan/Research/Wordnet-Improvisation/experimental/input.txt")
+while True:
+ try:
+  fd.seek(offset)
+  byte = fd.read(1)
+  if byte == '\n': break  
+  offset = offset + 1   
+ except ValueError:
+   break
+print(offset)
+
 
