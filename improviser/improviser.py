@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 import re
 from tqdm import tqdm
 import os
@@ -21,8 +22,29 @@ import os
 ## First make inteprator and genrator
 #wagon n 5 4 @ ~ #p %p 5 2 04543158 03977966 09219858 04543509 02814533
 my_dict = { }
-current_offset = 0;
-offset(string);
+current_offset = 15300278;
+temp_offset = 0
+def offset(str):
+    global current_offset
+    global temp_offset
+    new_offset = 0
+    fd = open("/home/manan/Research/Wordnet-Improvisation/improviser/data.txt",'a+')
+    fd.write(str)
+    fd.write("\n")
+
+    while True:
+     try:
+      fd.seek(temp_offset)
+      byte = fd.read(1)
+      if byte == '\n': break
+      temp_offset = temp_offset + 1
+      new_offset = new_offset +1
+     except ValueError:
+      break
+    temp_offset = temp_offset+1
+    new_offset = new_offset+1
+    current_offset = current_offset+new_offset
+    return current_offset
 
 class Index_object:
   def __init__(self, word, pos,synset_cnt,p_cnt,ptr_symbol,sense_cnt,tagsense_cnt,synset_offset):
@@ -53,10 +75,16 @@ class Index_object:
     for i in self.synset_offset:
         temp_sysnet_offset = temp_sysnet_offset + " " + i
     string = self.word + " " + self.pos + " " + self.synset_cnt + " " + self.p_cnt + temp_ptr_symbols + " "+ self.sense_cnt + " " + self.tagsense_cnt + temp_sysnet_offset
-    print(string)
+    return string
 
   def write_command(self):##to be completed
-    filename = ""
+    global current_offset
+    command = self.make_command() ## to be made at current_offset
+    #current_offset = current_offset + offset(command)
+    filename = "/home/manan/nltk_data/corpora/wordnet/index.noun" ##write
+    fd = open(filename,'a+')
+    fd.write(command)
+    fd.write('\n')
 
 class Data_object:
   def __init__(self, synset_offset , lex_filenum ,ss_type,w_cnt,words_lex_id,p_cnt,ptrs,hifen,definition):
@@ -84,45 +112,44 @@ class Data_object:
   def make_command(self):
     temp_word_list = "";
     for i in self.words_lex_id:
-        temp_word_list = temp_word_list + " " + i[0] + " " + i[1]
+        temp_word_list = temp_word_list + " " + i[0].decode("utf-8") + " " + i[1].decode("utf-8")
     temp_ptrs = "";
-    for i in self.ptrs:
-        temp_ptrs = temp_ptrs + " " + i[0] + " " + i[1] + " "+ i[2] + " " + i[3]
 
-    command = self.synset_offset + " "+ self.lex_filenum +" "+ self.ss_type+" "+self.w_cnt+temp_word_list+" "+self.p_cnt+temp_ptrs+" "+self.hifen+" "+self.definition
+    for i in self.ptrs:
+        temp_ptrs = temp_ptrs + " " + i[0].decode("utf-8") + " " + i[1].decode("utf-8") + " "+ i[2].decode("utf-8") + " " + i[3].decode("utf-8")
+    print(type(self.synset_offset))
+    print(type(self.lex_filenum))
+    print(type(self.ss_type))
+    print(type(self.w_cnt))
+    print(type(self.p_cnt))
+    print(type(self.hifen))
+    #print(type(self.synset_offset))
+
+    command = self.synset_offset + " "+ self.lex_filenum.decode('utf-8') +" "+ self.ss_type.decode('utf-8')+" "+self.w_cnt.decode('utf-8')+temp_word_list+" "+self.p_cnt+temp_ptrs+" "+self.hifen.decode('utf-8')+" "+self.definition
     print(command)
     return command
 
-  def write_command(self):##to be completed
+  def write_command(self):
+    global current_offset
     #self.synset_offset = string(current_offset)
     command = self.make_command() ## to be made at current_offset
-    current_offset = current_offset + offset(command)
-    filename = "" ##write
-
-
-
+    current_offset = offset(command)
+    print("reached")
+    filename = "/home/manan/nltk_data/corpora/wordnet/data.noun" ##write
+    openfile = open(filename,'a+')
+    openfile.write(command)
+    openfile.write('\n')
 #test_str_data = "04543158 06 n 02 wagon 0 waggon 0 013 @ 04576211 n 0000 %p 02765028 n 0000 ~ 02787120 n 0000 ~ 02970849 n 0000 ~ 03027505 n 0000 ~ 03122295 n 0000 ~ 03558841 n 0000 ~ 03690600 n 0000 ~ 03765467 n 0000 ~ 04468847 n 0000 %p 04543772 n 0000 ~ 04543924 n 0000 ~ 04563020 n 0000 | any of various kinds of wheeled vehicles drawn by an animal or a tractor"
 #04556204 06 n 05 watchband 0 watchstrap 0 wristband 1 watch_bracelet 0 bracelet 1 001 @ 02784218 n 0000 | a band of cloth or leather or metal links attached to a wristwatch and wrapped around the wrist
 #04556408 06 n 01 watch_cap 0 001 @ 02954340 n 0000 | a knitted dark blue wool cap worn by seamen in cold or stormy weather
-def offset(str):
-    fd = open("/home/manan/Research/Wordnet-Improvisation/improviser/data.txt")
-    fd.write(str)
-    fd.write("/n")
-    while True:
-     try:
-      fd.seek(current_offset)
-      byte = fd.read(1)
-      if byte == '\n': break
-      current_offset = current_offset + 1
-     except ValueError:
-      break
-    current_offset = current_offset+1;
+
 
 
 def inteprator_data(offset):
- fd = open("/home/manan/nltk_data/corpora/wordnet/data.noun")
+ fd = open("/home/manan/nltk_data/corpora/wordnet/data.noun",'rb')
  fd.seek(offset)
  str = fd.readline()
+ #print(str)
  get_parts = str.split()
  synset_offset = get_parts[0]
  lex_filenum = get_parts[1]
@@ -137,17 +164,20 @@ def inteprator_data(offset):
  uptillnow = 6 + int(w_cnt)
  ptrs = []
  #print(uptillnow)
- #print(get_parts[9])
+
  #print(p_cnt)
  for i in range(int(p_cnt)):
      ptrs.append([get_parts[uptillnow+1],get_parts[uptillnow+2],get_parts[uptillnow+3],get_parts[uptillnow+4]])
      uptillnow = uptillnow+4
  hifen = get_parts[uptillnow+1]
+ #print(hifen)
  def_count = len(get_parts) - (uptillnow+1)
  def_count = def_count - 1
  definition = ""
+ print(get_parts[uptillnow+2])
  for i in range(def_count):
-     definition = definition + " "+get_parts[i+uptillnow+2]
+     definition = definition + " "+ get_parts[i+uptillnow+2].decode("utf-8")
+     #print(get_parts[uptillnow+2+i])
  p2 = Data_object(synset_offset , lex_filenum ,ss_type,w_cnt,words_lex_id,p_cnt,ptrs,hifen,definition)
  return p2
  #p2.print()
@@ -196,9 +226,57 @@ def load_file():
 
 
 
-
+# Hyponym--->child
+#Hypernym ---> parent
 ##node checking can be done using dict
 def node_found_child_found_relationship_not_found(node,child):
+    global current_offset
+    child_node = my_dict[child]
+    print("1")#running
+    synset_offset_child = child_node.synset_offset[0]
+    print("1")#running
+    child_data_node = inteprator_data(int(synset_offset_child))
+    print("1")#running
+    child_data_node.synset_offset = str(current_offset)
+    print("1")#running
+    child_data_node.p_cnt = str(int(child_data_node.p_cnt)+1)
+
+    print("1")#running
+    child_data_node.ptrs.append([b'@',bytes(my_dict[node].synset_offset[0].encode('utf-8')),b'n',b'0000'])
+    print("1")#running
+    child_data_node.make_command()
+    print("1")#running
+    child_node.synset_cnt = str(int(child_node.synset_cnt) + 1)
+    child_node.sense_cnt = str(int(child_node.sense_cnt)+1)
+    child_node.synset_offset.append(str(current_offset))
+    print("1")#running
+    my_dict[child] = child_node
+    print("1")#running
+    child_node.make_command()
+    print("1")#running
+    child_node.write_command()
+    print("1")#running
+    child_data_node.write_command()
+    print("1")
+    parent_node = my_dict[node]
+    print("1")
+    synset_offset = my_dict[node].synset_offset[0]
+    print("1")
+    parent_data_node = inteprator_data(int(synset_offset))
+    parent_data_node.synset_offset = str(current_offset)
+    parent_data_node.p_cnt = str(int(parent_data_node.p_cnt)+1)
+    parent_data_node.ptrs.append([b'~',(my_dict[child].synset_offset[0]).encode('utf-8'),b'n',b'0000'])
+    parent_data_node.make_command()
+    parent_node.synset_cnt = str(int(parent_node.synset_cnt) + 1)
+    parent_node.sense_cnt = str(int(parent_node.sense_cnt)+1)
+    parent_node.synset_offset.append(str(current_offset))
+    parent_data_node.write_command()
+    parent_node.make_command()
+    parent_node.write_command()
+    return 0
+
+
 
 
 load_file()
+node_found_child_found_relationship_not_found("wagon","computer_science")
