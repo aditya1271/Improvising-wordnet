@@ -118,12 +118,15 @@ class Data_object:
     for i in self.ptrs:
         temp_ptrs = temp_ptrs + " " + i[0].decode("utf-8") + " " + i[1].decode("utf-8") + " "+ i[2].decode("utf-8") + " " + i[3].decode("utf-8")
     print(type(self.synset_offset))
-    print(type(self.lex_filenum))
-    print(type(self.ss_type))
-    print(type(self.w_cnt))
+    print(type(self.lex_filenum.decode('utf-8')))
+    print(type(self.ss_type.decode('utf-8')))
+    print(type(self.w_cnt.decode('utf-8')))
     print(type(self.p_cnt))
-    print(type(self.hifen))
-    #print(type(self.synset_offset))
+    print(type(self.hifen.decode('utf-8')))
+    print(type(self.hifen.decode('utf-8')))
+    print(type(self.definition))
+
+        #print(type(self.synset_offset))
 
     command = self.synset_offset + " "+ self.lex_filenum.decode('utf-8') +" "+ self.ss_type.decode('utf-8')+" "+self.w_cnt.decode('utf-8')+temp_word_list+" "+self.p_cnt+temp_ptrs+" "+self.hifen.decode('utf-8')+" "+self.definition
     print(command)
@@ -151,6 +154,7 @@ def inteprator_data(offset):
  str = fd.readline()
  #print(str)
  get_parts = str.split()
+ print(get_parts)
  synset_offset = get_parts[0]
  lex_filenum = get_parts[1]
  ss_type = get_parts[2]
@@ -160,12 +164,12 @@ def inteprator_data(offset):
  for i in range(int(w_cnt)):
      words_lex_id.append([get_parts[temp_num],get_parts[temp_num+1]])
      temp_num = temp_num+2
- p_cnt = get_parts[6+int(w_cnt)]
- uptillnow = 6 + int(w_cnt)
+ p_cnt = get_parts[temp_num]
+ uptillnow = temp_num
  ptrs = []
  #print(uptillnow)
 
- #print(p_cnt)
+ print(p_cnt)
  for i in range(int(p_cnt)):
      ptrs.append([get_parts[uptillnow+1],get_parts[uptillnow+2],get_parts[uptillnow+3],get_parts[uptillnow+4]])
      uptillnow = uptillnow+4
@@ -235,6 +239,7 @@ def node_found_child_found_relationship_not_found(node,child):
     print("1")#running
     synset_offset_child = child_node.synset_offset[0]
     print("1")#running
+    print(int(synset_offset_child))
     child_data_node = inteprator_data(int(synset_offset_child))
     print("1")#running
     child_data_node.synset_offset = str(current_offset)
@@ -276,7 +281,32 @@ def node_found_child_found_relationship_not_found(node,child):
     return 0
 
 
+def node_found_child_not_found(node,child):
+    #def __init__(self, synset_offset , lex_filenum ,ss_type,w_cnt,words_lex_id,p_cnt,ptrs,hifen,definition):
+    ptrs = ['@', '~']
+    offset_list = [str(current_offset)]
+    child_index_data  = Index_object(child,'n','1','2',ptrs,'1','2',offset_list)
+    #make data and index object
+    my_dict[child] = child_index_data
+    #command = self.synset_offset + " "+ self.lex_filenum.decode('utf-8') +" "+ self.ss_type.decode('utf-8')+" "+self.w_cnt.decode('utf-8')+temp_word_list+" "+self.p_cnt+temp_ptrs+" "+self.hifen.decode('utf-8')+" "+self.definition
+    #string = child + " " + "0"
+    wordlist = [[child.encode('utf-8'),b'0']]
+    temp_ptrs = []
+    child_data = Data_object(str(current_offset),b'06',b'n',b'1',wordlist,'0',temp_ptrs,b'|','custom')
+    #write information
+    child_data.make_command()
+    child_index_data.make_command()
+    child_index_data.write_command()
+    child_data.write_command()
+
+    #call the previous function
+    node_found_child_found_relationship_not_found(node,child)
+    print("done")
+    return 0
 
 
 load_file()
-node_found_child_found_relationship_not_found("wagon","computer_science")
+node_found_child_not_found("computer_science","computer_thingy")
+node_found_child_found_relationship_not_found("computer_science","artificial_intelligence")
+node_found_child_found_relationship_not_found("computer_science","robotics")
+node_found_child_found_relationship_not_found("computer_science","data_structure")
