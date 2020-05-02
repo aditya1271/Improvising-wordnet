@@ -231,11 +231,11 @@ Number of senses of lemma that are ranked according to their frequency of occurr
       * new_test.sh(present in the folder helper)--> to be put in /home/manan(aditya)/nltk_data/corpora/wordnet folder
       *	run_mode.sh(present in the folder helper)--> to be put in /home/manan(aditya)/nltk_data/corpora/wordnet folder
       * refresh.sh
-  * Purpose of each shell file in helper 
+  * Purpose of each shell file in
      * backup.sh : to make backup of index.noun file and the data.noun file so that we can recover the file in case it is destroyed
      * new_test.sh : it reverts all the changes made in test files(index2.noun and data2.noun) back to normal so that we can test again on it.
      * run_mode.sh : it reversts all the changes made in real files(index.noun and data.noun) using the backup files.
-
+     * refresh.sh : it clear the data.txt file so that offset updation is mantained.
   * Order in which each of the file should be executed:
      * Firstly the file backup.sh should be run to create backups of the main file 
      * then in the python file(improviser.py) index.noun and data.noun have to changed to index2.noun and data2.noun so that they target the test files and not the main files
