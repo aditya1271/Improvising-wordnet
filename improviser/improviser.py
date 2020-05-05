@@ -2,11 +2,13 @@
 import re
 from tqdm import tqdm
 import os
+import pickle
+import networkx as nx
 ## Find out if adding duplicate words on the last will work in both the cases.
 
-## make a inteprator that extracts the relevant information of what we want from the line of index.noun
+## make a inteprator that extracts the relevant information of what we want from the line of index2.noun
 
-## make a generator that generates the reuired syntax of command for the file of data.noun and index.noun
+## make a generator that generates the reuired syntax of command for the file of data2.noun and index2.noun
 
 
 ## 4 cases
@@ -15,9 +17,9 @@ import os
 # Node not exist --> then it can be classified into above two cases.
 
 ## How to handle each case?
-#  look up data in index.noun file for the required version and can refer in data.noun according to the offset values
-#  desighn the command to be written in data.noun file and calculate the offset corresponding to that and then write both of them
-#  desighn the command to be written in index.noun file for the node and the child according to their offset and write the file
+#  look up data in index2.noun file for the required version and can refer in data2.noun according to the offset values
+#  desighn the command to be written in data2.noun file and calculate the offset corresponding to that and then write both of them
+#  desighn the command to be written in index2.noun file for the node and the child according to their offset and write the file
 
 ## First make inteprator and genrator
 #wagon n 5 4 @ ~ #p %p 5 2 04543158 03977966 09219858 04543509 02814533
@@ -81,7 +83,7 @@ class Index_object:
     global current_offset
     command = self.make_command() ## to be made at current_offset
     #current_offset = current_offset + offset(command)
-    filename = "/home/manan/nltk_data/corpora/wordnet/index.noun" ##write
+    filename = "/home/manan/nltk_data/corpora/wordnet/index2.noun" ##write
     fd = open(filename,'a+')
     fd.write(command)
     fd.write('\n')
@@ -138,7 +140,7 @@ class Data_object:
     command = self.make_command() ## to be made at current_offset
     current_offset = offset(command)
     print("reached")
-    filename = "/home/manan/nltk_data/corpora/wordnet/data.noun" ##write
+    filename = "/home/manan/nltk_data/corpora/wordnet/data2.noun" ##write
     openfile = open(filename,'a+')
     openfile.write(command)
     openfile.write('\n')
@@ -149,7 +151,7 @@ class Data_object:
 
 
 def inteprator_data(offset):
- fd = open("/home/manan/nltk_data/corpora/wordnet/data.noun",'rb')
+ fd = open("/home/manan/nltk_data/corpora/wordnet/data2.noun",'rb')
  fd.seek(offset)
  str = fd.readline()
  #print(str)
@@ -216,7 +218,7 @@ def inteprator_index(str):
  my_dict[word] = p2
 
 def load_file():
-  file_location = "/home/manan/nltk_data/corpora/wordnet/index.noun"
+  file_location = "/home/manan/nltk_data/corpora/wordnet/index2.noun"
   total_size = os.path.getsize(file_location)
   print(total_size)
   pbar = tqdm(total = total_size)
@@ -306,6 +308,22 @@ def node_found_child_not_found(node,child):
 
 
 load_file()
+dg=nx.DiGraph()
+
+with open("/home/manan/Research/Wordnet-Improvisation/improviser/edgelist.txt",'rb') as f:
+    dg = pickle.load(f)
+print(dg)
+for x in dg.nodes():
+   val=nx.predecessor(dg,x)
+   for child in val:
+     if len(val[child]) != 0:
+       parent=val[child][0].replace(" ","_")
+       child=child.replace(" ","_")
+       if parent in my_dict:
+         if child in my_dict:
+           node_found_child_found_relationship_not_found(parent,child)
+         else:
+            node_found_child_not_found(parent,child)
 node_found_child_not_found("computer_science","computer_thingy")
 node_found_child_found_relationship_not_found("computer_science","artificial_intelligence")
 node_found_child_found_relationship_not_found("computer_science","robotics")
