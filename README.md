@@ -244,5 +244,6 @@ Number of senses of lemma that are ranked according to their frequency of occurr
      * if the results are as expected then run the file run_mode.sh and then finally the python file(change index2.noun to index.noun and data2.noun to data.noun) giving it sudo permissions.
      * if the test file results were wrong then you can run the file new_test.sh again and then run python file again to check the results.
 
+test of branch creation --> so like i add code or a new feature.
    * ### Important note:
      * Before running the python file any time , run the shell file refresh.sh to clear the file data.txt which is tracking the offset value
